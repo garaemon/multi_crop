@@ -8,11 +8,11 @@ g_event_status = {'event': None}
 g_images = {}
 g_rendered_images = {}
 
-def computeRatio(p, q):
-    rp = (float(p[0]) / g_images[g_event_status['focus_window']].shape[:2][1],
-          float(p[1]) / g_images[g_event_status['focus_window']].shape[:2][0])
-    rq = (float(q[0]) / g_images[g_event_status['focus_window']].shape[:2][1],
-          float(q[1]) / g_images[g_event_status['focus_window']].shape[:2][0])
+def computeRatio(p, q, img):
+    rp = (float(p[0]) / img.shape[:2][1],
+          float(p[1]) / img.shape[:2][0])
+    rq = (float(q[0]) / img.shape[:2][1],
+          float(q[1]) / img.shape[:2][0])
     return (rp, rq)
 
 def computePoint(img, rp, rq):
@@ -31,7 +31,7 @@ def drawRegions():
         return
     p = g_event_status['down_pos']
     q = g_event_status['up_pos']
-    (rp, rq) = computeRatio(p, q)
+    (rp, rq) = computeRatio(p, q, g_images[g_event_status['focus_window']])
     # compute ratio
     for f, img in g_images.items():
         (P, Q) = computePoint(img, rp, rq)
