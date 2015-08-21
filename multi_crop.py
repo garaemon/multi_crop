@@ -42,7 +42,7 @@ def drawRegions():
 def saveImages():
     p = g_event_status['down_pos']
     q = g_event_status['up_pos']
-    (rp, rq) = computeRatio(p, q)
+    (rp, rq) = computeRatio(p, q, g_images[g_event_status['focus_window']])
     for f, img in g_images.items():
         (P, Q) = computePoint(img, rp, rq)
         min_x = min(P[0], Q[0])
