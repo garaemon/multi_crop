@@ -49,7 +49,8 @@ def saveImages():
         max_x = max(P[0], Q[0])
         min_y = min(P[1], Q[1])
         max_y = max(P[1], Q[1])
-        cropped = img[min_y:(max_y - min_y), min_x:(max_x - min_x)]
+        cropped = img[min_y:max_y, min_x:max_x]
+                      
         (filename, suffix) = os.path.basename(f).split(".")
         outname = filename + "_cropped." + suffix
         print "saving image", outname
