@@ -1,6 +1,10 @@
 multi_crop
 =========
 
+Requirements
+------------
+opencv is required.
+
 Usage
 -----
 ```
